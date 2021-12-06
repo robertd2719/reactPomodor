@@ -18,13 +18,13 @@ const TaskMain = () => {
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, [data])
     return (
         <>
-            <TaskEntry/>
+            <TaskEntry updateData={updateData} data={data}/>
             <h2>Task List</h2>
             {data.map(item => {
-                return <Tasking key={item.id} item={item}/>
+                return <Tasking key={item.id} item={item} updateData={updateData} data={data}/>
             })}
         </>
     )

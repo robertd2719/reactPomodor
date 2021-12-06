@@ -1,16 +1,21 @@
 import {useState} from "react";
 
-const TaskEntry = () =>{
+const TaskEntry = ({data,updateData}) =>{
     const [tasking,updateTasking] = useState("");
 
     const handleSubmit = async (event) =>{
-        alert(`${tasking} was updated`);
+        if (tasking === ""){
+            alert("Please enter a task....");
+            return;
+        }
+        alert(`Task List updated, with :${tasking} `);
         try{
             const response = await fetch('http://localhost:5000/api/todos',{
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({"message":tasking})
             });
+            console.log(response);
         } catch(err){
             console.error(err.stack);
         }
