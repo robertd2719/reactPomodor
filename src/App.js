@@ -1,6 +1,6 @@
 import './App.css';
-import TimerTest from "./components/TimerTest";
-import TaskMain from "./components/TaskMain";
+import TimerTest from "./components/TaskComps/TimerTest";
+import TaskMain from "./components/TaskComps/TaskMain";
 
 
 function App() {

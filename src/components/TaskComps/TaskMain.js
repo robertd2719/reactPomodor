@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import Tasking from "./Tasking";
+import TaskEntry from "./TaskEntry";
 
 const TaskMain = () => {
     const [data, updateData] = useState([]);
@@ -20,9 +21,10 @@ const TaskMain = () => {
     }, [])
     return (
         <>
-            <h1>Task List</h1>
+            <TaskEntry/>
+            <h2>Task List</h2>
             {data.map(item => {
-                return <Tasking item={item}/>
+                return <Tasking key={item.id} item={item}/>
             })}
         </>
     )
